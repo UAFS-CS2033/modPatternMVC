@@ -11,11 +11,12 @@ create table contacts(
    username varchar(50),
    email varchar(120),
    address1 varchar(120),
+   passwd varchar(50),
    primary key(contactID)
 )engine=innodb;
 
-insert into contacts(username,email,address1) values('Jim Smith','jim.smith@gmail.com','1107 Addison');
-insert into contacts(username,email,address1) values('Mary Jones','mjones@gmail.com','2314 Park');
-insert into contacts(username,email,address1) values('Rick Wilson','rick.wilson@gmail.com','1122 56th');
-insert into contacts(username,email,address1) values('Kim Johnson','kjohnson@gmail.com','456 Oak');
-insert into contacts(username,email,address1) values('Brian Williams','bwilliams@gmail.com','123 Main');
+insert into contacts(username,email,address1,passwd) values('Jim Smith','jim.smith@gmail.com','1107 Addison','pass123');
+insert into contacts(username,email,address1,passwd) values('Mary Jones','mjones@gmail.com','2314 Park','pass123');
+insert into contacts(username,email,address1,passwd) values('Rick Wilson','rick.wilson@gmail.com','1122 56th','pass123');
+insert into contacts(username,email,address1,passwd) values('Kim Johnson','kjohnson@gmail.com','456 Oak','pass123');
+insert into contacts(username,email,address1,passwd) values('Brian Williams','bwilliams@gmail.com','123 Main','pass123');

@@ -45,6 +45,23 @@
             return $contacts;
         }
 
+        public function authenticate($userName, $passwd){
+            $connection=$this->getConnection();
+            $stmt = $connection->prepare("SELECT * FROM contacts WHERE username = ? and passwd =?;"); 
+            $stmt->bind_param("ss",$userName,$passwd);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $contact=null;
+            while($row = $result->fetch_assoc()){
+                $contact = new Contact();
+                $contact->load($row);
+            }    
+            $stmt->close();
+            $connection->close();
+            return $contact;
+        }
+
+
 
 
     }
