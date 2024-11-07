@@ -1,9 +1,6 @@
-# Data Access Object Pattern
-## Implementation of the Data Access Object (DAO) Pattern in PHP
+## CS 2033 Web Systems - Model View Controller
 
-## CS 2033 Web Systems - MVC Framework (S24)
-
-![mvc diagram](./images/mvcframework.png)
+![mvc diagram](mvc.png)
 
 ### Model-View-Controller (MVC) Pattern
 
