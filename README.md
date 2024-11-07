@@ -1,47 +1,37 @@
 # Data Access Object Pattern
 ## Implementation of the Data Access Object (DAO) Pattern in PHP
 
-<img src="images/DAO-Pattern.png" alt="DAO Pattern">
+## CS 2033 Web Systems - MVC Framework (S24)
 
-This repository project illustrates the use of the Data Access Object(DA0) design pattern in PHP. I use this pattern in just about every program I write that requires management of a persistance layer.  The persistance or storage for programs is typically on the file system or in a database.  The DAO pattern:
+![mvc diagram](./images/mvcframework.png)
 
-* *Separates your application into a **Front-End (view) and a Back-End (model)*** by adding an interface layer between the front-end code, which is the user inteface, and the back-end code, which is where the data is stored.
+### Model-View-Controller (MVC) Pattern
 
-* Creates an **interface layer** that *abstracts the storage details of the backed-end (model)from the front-end (view)* by creating a class that represents a row of columns in a database table, or the fields of a record in a file. One instance of the class represents one row in the table or one record in the file.  A collection of rows or records is represented by an array of objects (one object for each row or record). This class is referred to as a Data Transfer Object (DTO).  It is the data container that is passed between the front-end and the back-end. 
+The **Model-View-Controller (MVC)** pattern is a software architectural design pattern commonly used in the development of user interfaces, particularly in web and desktop applications. It divides an application into three interconnected components, each with specific responsibilities:
 
-* Creates a **DAO layer** that *implements all of the storage specific data operations by defining methods for all of the CRUD operations.* Methods are defined for each of the required operations. Data is passed from the front-end(view) to the DAO by calling the DAO method and encapsulating the data in a Data Transfer Object(or array of DTOs) and passing it as an argument to the DAO method.  The Back-End (model) sends data to the front-end by encapsulating the data in a Data Transfer Object(or array of DTOs) and passing as a return value.
+1. **Model:**
+   - The Model represents the application's data and business logic.
+   - It is responsible for managing the data and the rules for updating or processing it.
+   - The Model notifies the View when there are changes in the data, ensuring that the user interface remains synchronized with the underlying data.
 
-    Operation | SQL Query
-    --------- | --------
-    **C**reate | Insert
-    **R**ead | Select
-    **U**pdate | Update
-    **D**elete | Delete
+2. **View:**
+   - The View is responsible for presenting the data to the user and handling user input.
+   - It displays the information from the Model to the user in a way that is suitable for presentation (UI).
+   - The View is also responsible for capturing user input and forwarding it to the Controller for processing.
 
+3. **Controller:**
+   - The Controller acts as an intermediary between the Model and the View.
+   - It receives user input from the View, processes it (often involving interactions with the Model), and updates the View accordingly.
+   - The Controller interprets user actions, translates them into operations on the Model, and updates the View to reflect any changes in the Model.
 
-The advantages of using the DAO pattern for your application include:
-* **Application Structure:** Your model for a table will consist of the DTO class that defines a row in the contact table, named Contact.php and a DAO class that will define all of the operations on that table named ContactDAO.php.  Both of them will be defined in the model directory.
-* **Maintainability:** By defining a directory structure and naming standards for your application.  Changes made to the application will be easy to locate the appropriate files.
-* **Reusability:** To create another application that accesses the same data, you just need to copy the model directory to the new application.  You can change the front-end without changing the back-end or change the back-end without changing the front-end.
-* **Teamwork:** Now that the application has a defined structure and naming standards, it is easier to distribute coding tasks and testing without creating code conflicts between team members.
-* **Web Services:** The DAO concept and structure will make it very easy to understand and transition to REST Web Services later in the course.
+#### Key Features of MVC Pattern:
 
-## Code Example
-The project in this repository implements a very basic contact list that supports two of the CRUD operations.  It allows you to see all of the contacts in the contacts table (Read) and it allows you to add a contact to the table (Create).  The DTO, Contact.php, and the DAO, ContactDAO.php are in the model directory. There are two different versions of the application.  One with the contact listing and add form on the same page, *home.php*. The other version has the listing on one page, *listContacts.php*, and the form on another page, *addContact.php*.
+- **Separation of Concerns:** MVC separates the application logic into three distinct components, promoting a clear division of responsibilities. This makes the code more modular and easier to maintain and understand.
 
-To add the database and tables to your local MySQL server, run the following from the root of the repository:
-```
-sudo mysql < contacts.sql
-```
+- **Reusability:** Each component (Model, View, and Controller) can be reused in different parts of the application or even in different applications altogether, enhancing code reusability.
 
+- **Scalability:** The modular structure of MVC allows for easier scalability, as changes in one component do not necessarily affect the others. This makes it easier to extend or modify the application over time.
 
-#### home.php
-<img src="images/patternDAOss1.png" alt="Screenshot">
+- **Testability:** Because of the separation of concerns, each component can be tested independently, making it easier to write unit tests for the Model, View, and Controller.
 
-
-
-#### listContacts.php
-<img src="images/daoss2.png" alt="Screenshot 2">
-
-#### addContact.php
-<img src="images/daoss3.png" alt="Screenshot 2">
+MVC is a widely adopted architectural pattern and serves as the foundation for many other design patterns and frameworks, contributing to the development of robust, scalable, and maintainable software applications.
